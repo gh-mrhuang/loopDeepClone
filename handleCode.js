@@ -1,19 +1,20 @@
 function quickSort(arr) {
   if (arr.length <= 1) return arr
-  const midIndex = Math.floor(arr.length / 2)
-  const mid = arr[midIndex]
+  const _arr = [...arr]
+  const midIndex = Math.floor(_arr.length / 2)
+  const mid = _arr[midIndex]
   console.log(mid)
-  arr.splice(midIndex, 1)
+  _arr.splice(midIndex, 1)
   const leftArr = []
   const rightArr = []
-  for (let i = 0; i < arr.length; i++){
+  for (let i = 0; i < _arr.length; i++){
     if (arr[i] <= mid) {
-      leftArr.push(arr[i])
+      leftArr.push(_arr[i])
     } else {
-      rightArr.push(arr[i])
+      rightArr.push(_arr[i])
     }
   }
-  return aa22(leftArr).concat([mid], aa22(rightArr))
+  return quickSort(leftArr).concat([mid], quickSort(rightArr))
 }
 
 function bubbleSort(arr) {
