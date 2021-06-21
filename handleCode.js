@@ -23,6 +23,7 @@ function bubbleSort(arr) {
     for (let j = 0; j < _arr.length -i; j++) {
       if (_arr[j] > _arr[j+1]) {
         flag = true
+        // node不支持这种语法
         // [_arr[j], _arr[j+1]] = [_arr[j + 1], _arr[j]]
         let temp = _arr[j]
         _arr[j] = _arr[j+1]
