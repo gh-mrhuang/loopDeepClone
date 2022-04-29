@@ -1,4 +1,43 @@
 function quickSort(arr) {
+  return quick(arr, 0, arr.length - 1)
+}
+
+function quick(arr, left, right) {
+  let index = 0
+  if (arr.length <= 1) return
+  index = parttition(arr, left, right)
+  if (left < index - 1) {
+    quick(arr, left, index - 1)
+  }
+  if (right > index) {
+    quick(arr, index, right)
+  }
+  return arr
+}
+
+function parttition(arr, left, right) {
+  const middle = Math.floor((left + right) / 2)
+  while (left <= right) {
+    console.log(middle, left, right)
+    while(arr[left] < arr[middle]) {
+      left++
+    }
+    while(arr[right] > arr[middle]) {
+      right--
+    }
+    if (left <= right) {
+      [arr[left], arr[right]] = [arr[right], arr[left]]
+      left++
+      right--
+    }
+  }
+  return left
+}
+
+const a = quickSort([2,3,7,8,1,6,4,5])
+console.log(a)
+
+function quickSort1(arr) {
   if (arr.length <= 1) return arr
   const _arr = [...arr]
   const midIndex = Math.floor(_arr.length / 2)
